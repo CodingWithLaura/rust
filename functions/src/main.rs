@@ -4,6 +4,7 @@ fn main() {
     real_function();
     function_with_param(5);
     let y = 6; //this is also a statement, needs to be within a function
+    now_with_a_function();
 }
 
 fn real_function() {
@@ -21,3 +22,15 @@ fn function_with_param(x: i32) {
 //let a = (let b = 6); ->
 //this will not work since let b = 6 is a statement and returns no value
 //for a to bind against
+
+//way to do this is to call a function, which indeed is an expression
+fn now_with_a_function() {
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!("The value of y is: {}", y);
+}
+//note: expressions do not have a ; at the end
+//when putting an ; at the end, it is a statement and has no return value
